@@ -1,0 +1,25 @@
+---
+
+- name: Install packages required by the backup/restore scripts
+  ansible.builtin.package:
+    name: "{{ docker_scripts_packages }}"
+    state: present
+
+- name: Setup backup user, group & authotized_keys  # noqa var-naming[no-role-prefix]
+  ansible.builtin.include_role:
+    name: deitkrachten.users
+  vars:
+    users: "{{ docker_scripts_users }}"
+    grps: "{{ docker_scripts_groups }}"
+
+- name: Copy scripts to make life easier
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    owner: root
+    group: docker
+    mode: "0550"
+  loop:
+    - docker-compose-backup.sh
+    - docker-compose-restore.sh
+    - docker-clean.sh

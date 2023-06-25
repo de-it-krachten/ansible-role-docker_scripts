@@ -1,0 +1,42 @@
+---
+
+# Generic
+generic:
+  role: ansible-role-docker_scripts
+  role_short: docker_scripts
+  role_description: |
+    Scripts to support docker<br> 
+  collections: []
+
+# Supported platforms
+platforms:
+  alpine3:
+    ci: false
+    supported: true
+
+# Dependencies
+dependencies:
+  roles:
+    - deitkrachten.users
+  collections: []
+
+# Molecule
+molecule:
+  requirements:
+    roles_extra:
+      - deitkrachten.python
+      - deitkrachten.docker
+      - deitkrachten.docker_compose
+      - deitkrachten.users
+  prepare:
+    vars:
+      activate_epel: true
+  converge:
+    vars:
+      python_package_install_optional: true
+      # pip_site_upgrade: true
+      docker_compose_type: pip
+    roles:
+      - deitkrachten.python
+      - deitkrachten.docker
+      - deitkrachten.docker_compose
