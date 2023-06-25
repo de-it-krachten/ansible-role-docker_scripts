@@ -1,0 +1,12 @@
+---
+
+# List of users needed for backup retrieval
+docker_scripts_users: []
+
+# List of groups needed for backup retrieval
+docker_scripts_groups: []
+
+# List of OS packages required by these scripts
+docker_scripts_packages:
+  - jq
+  - duplicity

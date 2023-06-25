@@ -1,0 +1,6 @@
+---
+
+- name: deitkrachten.users
+  src: https://github.com/de-it-krachten/ansible-role-users.git
+  version: main
+  scm: git

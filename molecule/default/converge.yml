@@ -1,0 +1,16 @@
+---
+
+- name: Converge
+  hosts: all
+  become: "yes"
+  vars:
+    python_package_install_optional: True
+    docker_compose_type: pip
+  roles:
+    - deitkrachten.python
+    - deitkrachten.docker
+    - deitkrachten.docker_compose
+  tasks:
+    - name: Include role 'ansible-role-docker_scripts'
+      ansible.builtin.include_role:
+        name: ansible-role-docker_scripts
