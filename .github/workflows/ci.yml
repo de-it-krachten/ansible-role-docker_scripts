@@ -235,21 +235,21 @@ jobs:
             ansible_lint: "ansible-lint>6,<7"
             hetznercloud: False
 
-          # - name: debian10_2.9
+          # - name: opensuse15_2.9
           #   runs_on: ubuntu-latest
-          #   distro: debian10
+          #   distro: opensuse15
           #   playbook: converge.yml
           #   ansible: "ansible==2.9.27"
           #   ansible_lint: "ansible-lint==5.4.0"
-          #   hetznercloud: True
-          # - name: debian10_2.14
-          - name: debian10
+          #   hetznercloud: False
+          # - name: opensuse15_2.14
+          - name: opensuse15
             runs_on: ubuntu-latest
-            distro: debian10
+            distro: opensuse15
             playbook: converge.yml
             ansible: "ansible-core>2.14,<2.15"
             ansible_lint: "ansible-lint>6,<7"
-            hetznercloud: True
+            hetznercloud: False
 
           # - name: debian11_2.9
           #   runs_on: ubuntu-latest
@@ -294,38 +294,6 @@ jobs:
           - name: ubuntu2204
             runs_on: ubuntu-latest
             distro: ubuntu2204
-            playbook: converge.yml
-            ansible: "ansible-core>2.14,<2.15"
-            ansible_lint: "ansible-lint>6,<7"
-            hetznercloud: True
-
-          # - name: fedora37_2.9
-          #   runs_on: ubuntu-latest
-          #   distro: fedora37
-          #   playbook: converge.yml
-          #   ansible: "ansible==2.9.27"
-          #   ansible_lint: "ansible-lint==5.4.0"
-          #   hetznercloud: True
-          # - name: fedora37_2.14
-          - name: fedora37
-            runs_on: ubuntu-latest
-            distro: fedora37
-            playbook: converge.yml
-            ansible: "ansible-core>2.14,<2.15"
-            ansible_lint: "ansible-lint>6,<7"
-            hetznercloud: True
-
-          # - name: fedora38_2.9
-          #   runs_on: ubuntu-latest
-          #   distro: fedora38
-          #   playbook: converge.yml
-          #   ansible: "ansible==2.9.27"
-          #   ansible_lint: "ansible-lint==5.4.0"
-          #   hetznercloud: True
-          # - name: fedora38_2.14
-          - name: fedora38
-            runs_on: ubuntu-latest
-            distro: fedora38
             playbook: converge.yml
             ansible: "ansible-core>2.14,<2.15"
             ansible_lint: "ansible-lint>6,<7"

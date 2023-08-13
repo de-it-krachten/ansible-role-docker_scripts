@@ -10,6 +10,15 @@ generic:
 
 # Supported platforms
 platforms:
+  debian12:
+    ci: false
+    supported: true
+  fedora37:
+    ci: false
+    supported: true
+  fedora38:
+    ci: false
+    supported: true
   alpine3:
     ci: false
     supported: true
