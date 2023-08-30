@@ -29,12 +29,15 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
-- Debian 10 (Buster)
+- SUSE Linux Enterprise 15<sup>1</sup>
+- openSUSE Leap 15
+- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
+- Debian 12 (Bookworm)<sup>1</sup>
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
-- Fedora 37
-- Fedora 38
+- Fedora 37<sup>1</sup>
+- Fedora 38<sup>1</sup>
 - Alpine 3<sup>1</sup>
 
 Note:
