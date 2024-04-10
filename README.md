@@ -13,7 +13,7 @@ Scripts to support docker<br>
 - deitkrachten.users
 
 #### Collections
-- community.general
+None
 
 ## Platforms
 
@@ -31,7 +31,6 @@ Supported platforms
 - AlmaLinux 9
 - SUSE Linux Enterprise 15<sup>1</sup>
 - openSUSE Leap 15
-- Debian 10 (Buster)<sup>1</sup>
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)<sup>1</sup>
 - Ubuntu 20.04 LTS
@@ -66,9 +65,9 @@ docker_scripts_packages:
 <pre><code>
 - name: sample playbook for role 'docker_scripts'
   hosts: all
-  become: "yes"
+  become: 'yes'
   vars:
-    python_package_install_optional: True
+    python_package_install_optional: true
     docker_compose_type: pip
   roles:
     - deitkrachten.python
