@@ -4,7 +4,7 @@
 # http://redsymbol.net/articles/unofficial-bash-strict-mode/
 # https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
 # set -o xtrace
-set -o errexit
+#set -o errexit
 set -o errtrace
 set -o nounset
 set -o pipefail
@@ -22,9 +22,11 @@ save_container_filesystem=true
 pause=false
 backup_dir_custom=false
 period=once
+restart=false
+filename="\${project_name}.\${backup_time}.tar.gz"
 
 # parse command line into arguments and check results of parsing
-while getopts :b:dfg:ihpP:t:u:-: OPT
+while getopts :b:dfg:ihn:pP:rt:u:-: OPT
 do
 
   # Support long options
@@ -42,6 +44,9 @@ do
     d|debug)
       set -vx
       ;;
+    f|skip-container-filesystem)
+      save_container_filesystem=false
+      ;; 
     g|group)
       backup_group=$OPTARG
       ;;
@@ -49,17 +54,20 @@ do
       Usage
       exit 0
       ;;
-    f|skip-container-filesystem)
-      save_container_filesystem=false
-      ;; 
     i|skip-image)
       save_image=false
+      ;;
+    n|filename)
+      filename="$OPTARG"
       ;;
     p|pause)
       pause=true
       ;;
     P|period)
       period=$OPTARG
+      ;; 
+    r|restart)
+      restart=true
       ;;
     t|tool)
       backup_tool=$OPTARG
@@ -120,6 +128,14 @@ fi
 [ -f "$project_dir/docker-compose.env" ] && source "$project_dir/docker-compose.env"
 [ -f "$project_dir/.env" ] && source "$project_dir/.env"
 
+if [[ $restart == true ]]
+then
+  echo "[+] Restarting $project_name"
+  cd $project_dir
+  docker-compose down
+  docker-compose up -d
+  sleep 5
+fi
 
 echo "[+] Backing up $project_name project to $backup_dir_tmp"
 mkdir -p "$backup_dir_tmp"
@@ -214,13 +230,14 @@ chmod 2750 $backup_dir
 
 case $backup_tool in
   tar)
-    echo "[*] Compressing backup folder to $backup_dir.tar.gz"
-    tar -C $backup_dir_tmp -zcf "${backup_dir}/${backup_time}.tar.gz" --totals .
+    eval filename="${filename}"
+    echo "[*] Compressing backup folder to ${backup_dir}/${filename}.tar.gz"
+    tar -C $backup_dir_tmp -zcf "${backup_dir}/${filename}.tar.gz" --totals .
     ;;
   duplicity)
     echo "[*] Creating bachup using duplicity"
     #duplicity --verbosity info . file://${backup_dir}/${backup_time} --no-encryption
-    duplicity . file://${backup_dir}/${backup_time} --no-encryption --volsize 100
+    duplicity . file://${backup_dir}/${project_name}.${backup_time} --no-encryption --volsize 100
     ;;
   *)
     echo "Unsupported backup tool '$backup_tool' specified!" >&2
