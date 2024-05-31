@@ -10,6 +10,15 @@ set -o nounset
 set -o pipefail
 #IFS=$'\n'
 
+# Set temporary PATH
+export PATH=/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:$PATH
+
+# Get the name of the calling script
+FILENAME=$(readlink -f $0)
+BASENAME="${FILENAME##*/}"
+BASENAME_ROOT=${BASENAME%%.*}
+DIRNAME="${FILENAME%/*}"
+
 umask=027
 backup_tool=tar
 backup_time=$(date +"%Y%m%dT%H%M%S")
@@ -24,6 +33,39 @@ backup_dir_custom=false
 period=once
 restart=false
 filename="\${project_name}.\${backup_time}.tar.gz"
+
+function Usage
+{
+
+  cat << EOF | grep -v "^#"
+
+$BASENAME
+
+Usage : $BASENAME <flags> <arguments>
+
+Flags :
+
+   -d|--debug             : Debug mode (set -x)
+   -D|--dry-run           : Dry run mode
+   -h|--help              : Prints this help message
+   -v|--verbose           : Verbose output
+
+   -b|--backup_dir <path> : Backup location
+   -f|--skip-container    : Do not backup containers
+   -g|--group <group>     : Backup group
+   -i|--skip-images       : Do not backup images
+   -n|--filename          : File name for the backups
+   -p|--pause             : Pause containers during backup for consistency (defaults to 'false')
+   -P|--period <period>   : Period for duplicity backups
+                            Valid values: monthly, weekly, daily or once
+   -r|--restart           : Restart containers prior to backup (defaults to 'false')
+   -t|--tool <tool>       : Backup tool use
+                            Valid values: tar (default), duplicity
+   -u|--umask <umask>     : Umask value for creating files
+
+EOF
+
+}
 
 # parse command line into arguments and check results of parsing
 while getopts :b:dfg:ihn:pP:rt:u:-: OPT
@@ -44,7 +86,7 @@ do
     d|debug)
       set -vx
       ;;
-    f|skip-container-filesystem)
+    f|skip-cfs)
       save_container_filesystem=false
       ;; 
     g|group)
