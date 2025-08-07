@@ -13,10 +13,22 @@ platforms:
   debian12:
     ci: false
     supported: true
-  fedora40:
+  rhel10:
+    ci: false
+    supported: false
+  rockylinux10:
+    ci: false
+    supported: false
+  almalinux10:
+    ci: false
+    supported: false
+  oraclelinux10:
+    ci: false
+    supported: false
+  fedora41:
     ci: false
     supported: true
-  fedora41:
+  fedora42:
     ci: false
     supported: true
   alpine3:
