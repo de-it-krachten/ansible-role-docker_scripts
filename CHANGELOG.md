@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/de-it-krachten/ansible-role-docker_scripts/compare/v1.3.0...v1.4.0) (2025-08-08)
+
+
+### Features
+
+* Add support for Debian 13 (Trixie) ([cf98ffe](https://github.com/de-it-krachten/ansible-role-docker_scripts/commit/cf98ffef67a79bfabc8cd4ffdc6f77466502439b))
+
 # [1.3.0](https://github.com/de-it-krachten/ansible-role-docker_scripts/compare/v1.2.0...v1.3.0) (2024-12-29)
 
 
