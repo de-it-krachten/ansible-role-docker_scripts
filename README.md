@@ -31,11 +31,12 @@ Supported platforms
 - openSUSE Leap 15
 - Debian 11 (Bullseye)
 - Debian 12 (Bookworm)<sup>1</sup>
+- Debian 13 (Trixie)
 - Ubuntu 20.04 LTS
 - Ubuntu 22.04 LTS
 - Ubuntu 24.04 LTS
-- Fedora 40<sup>1</sup>
 - Fedora 41<sup>1</sup>
+- Fedora 42<sup>1</sup>
 - Alpine 3<sup>1</sup>
 
 Note:
