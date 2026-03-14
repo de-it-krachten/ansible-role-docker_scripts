@@ -22,18 +22,6 @@ platforms:
   almalinux10:
     supported: false
     ci: false
-  sles15:
-    supported: true
-    ci: false
-  sles16:
-    supported: true
-    ci: false
-  opensuse15:
-    supported: true
-    ci: true
-  opensuse16:
-    supported: true
-    ci: true
   debian12:
     supported: true
     ci: false
