@@ -10,30 +10,45 @@ generic:
 
 # Supported platforms
 platforms:
-  debian12:
-    ci: false
-    supported: true
   rhel10:
-    ci: false
     supported: false
+    ci: false
   rockylinux10:
-    ci: false
     supported: false
-  almalinux10:
     ci: false
-    supported: false
   oraclelinux10:
-    ci: false
     supported: false
-  fedora41:
     ci: false
+  almalinux10:
+    supported: false
+    ci: false
+  sles15:
     supported: true
+    ci: false
+  sles16:
+    supported: true
+    ci: false
+  opensuse15:
+    supported: true
+    ci: true
+  opensuse16:
+    supported: true
+    ci: true
+  debian12:
+    supported: true
+    ci: false
+  ubuntu2004:
+    supported: true
+    ci: true
   fedora42:
-    ci: false
     supported: true
+    ci: false
+  fedora43:
+    supported: true
+    ci: false
   alpine3:
-    ci: false
     supported: true
+    ci: false
 
 # Dependencies
 dependencies:
