@@ -18,9 +18,7 @@ defaults:
     working-directory: "de-it-krachten/ansible-role-docker_scripts"
 
 
-# Create list of platform to perform CI on
 
-# Get intersect of CI platforms & default platforms for phase1
 
 jobs:
 
@@ -224,7 +222,7 @@ jobs:
             ansible: "ansible-core>2.20,<2.21"
             ansible_lint: "ansible-lint"
             python: "3.13"
-            hetznercloud: True
+            hetznercloud: False
 
 
     steps:
@@ -388,7 +386,7 @@ jobs:
             ansible: "ansible-core>2.16,<2.17"
             ansible_lint: "ansible-lint>25,<25.11"
             python: "3.12"
-            hetznercloud: True
+            hetznercloud: False
 
           - name: rockylinux9
             runs_on: ubuntu-22.04
@@ -398,7 +396,7 @@ jobs:
             ansible: "ansible-core>2.20,<2.21"
             ansible_lint: "ansible-lint"
             python: "3.13"
-            hetznercloud: True
+            hetznercloud: False
 
           - name: oraclelinux8
             runs_on: ubuntu-22.04
@@ -448,7 +446,7 @@ jobs:
             ansible: "ansible-core>2.20,<2.21"
             ansible_lint: "ansible-lint"
             python: "3.13"
-            hetznercloud: True
+            hetznercloud: False
 
           - name: debian13
             runs_on: ubuntu-22.04
@@ -458,7 +456,7 @@ jobs:
             ansible: "ansible-core>2.20,<2.21"
             ansible_lint: "ansible-lint"
             python: "3.13"
-            hetznercloud: True
+            hetznercloud: False
 
           - name: ubuntu2004
             runs_on: ubuntu-22.04
@@ -468,7 +466,7 @@ jobs:
             ansible: "ansible-core>2.19,<2.20"
             ansible_lint: "ansible-lint"
             python: "3.12"
-            hetznercloud: True
+            hetznercloud: False
 
           - name: ubuntu2204
             runs_on: ubuntu-22.04
@@ -478,7 +476,7 @@ jobs:
             ansible: "ansible-core>2.20,<2.21"
             ansible_lint: "ansible-lint"
             python: "3.13"
-            hetznercloud: True
+            hetznercloud: False
 
           - name: ubuntu2404
             runs_on: ubuntu-22.04
@@ -488,7 +486,7 @@ jobs:
             ansible: "ansible-core>2.20,<2.21"
             ansible_lint: "ansible-lint"
             python: "3.13"
-            hetznercloud: True
+            hetznercloud: False
 
 
     steps:
