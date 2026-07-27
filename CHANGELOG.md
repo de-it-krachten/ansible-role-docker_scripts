@@ -1,3 +1,12 @@
+# [1.7.0](https://github.com/de-it-krachten/ansible-role-docker_scripts/compare/v1.6.0...v1.7.0) (2026-07-27)
+
+
+### Features
+
+* Added support for Fedora 44 ([d3e4f5a](https://github.com/de-it-krachten/ansible-role-docker_scripts/commit/d3e4f5ada16e6be53cb5df56d160d409084739a6))
+* Added support for Ubuntu 26.04 LTS ([a0678b7](https://github.com/de-it-krachten/ansible-role-docker_scripts/commit/a0678b789eb05e50e3f955fe44184e7c3d748361))
+* Drop support for Fedora 42 ([819976a](https://github.com/de-it-krachten/ansible-role-docker_scripts/commit/819976acaae18dba826e76c28a21ad9897cdb987))
+
 # [1.6.0](https://github.com/de-it-krachten/ansible-role-docker_scripts/compare/v1.5.0...v1.6.0) (2026-03-15)
 
 
