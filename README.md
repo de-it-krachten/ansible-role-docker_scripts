@@ -27,7 +27,6 @@ Supported platforms
 - OracleLinux 9
 - AlmaLinux 8
 - AlmaLinux 9
-- Debian 11 (Bullseye)
 - Debian 12 (Bookworm)<sup>1</sup>
 - Debian 13 (Trixie)
 - Ubuntu 20.04 LTS
